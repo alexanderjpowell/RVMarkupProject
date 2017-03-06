@@ -1,0 +1,30 @@
+Author: Alexander Powell
+Date: 03.05.2017
+
+Instructions for executing HtmlScore Markup project for Red Ventures application
+
+----------------------------------------------------------------------------------
+
+My submission for the markup project is written in Python.  My implementation is contained in a single python file: src/HTMLScorer.py
+
+This project was written using Python version 2.7 on OS X 10.12 (Sierra).  
+
+In order to properly run this project, you must have MySQL installed on your machine and the MySQLdb library for Python.  
+Additionally, the project uses Python's HTMLParser class for help getting tag info.  
+
+Before running the program, a database named "RedVentures" should be created.  For the sake of this project the program is set to 
+login to the mysql with username "root" and password "password".  Obviously for any sort of real application a more secure authentication
+method should be established.  
+
+To begin, run the script to create the HtmlScores table in the RedVentures database.  This can be done with the following command.  
+> mysql -uroot -ppassword < schema/setup.sql
+
+From there you are ready to execute the program, which can be invoked as simply as:
+> python src/HTMLScorer.py
+
+The python file contains 2 classes and the main method at the bottom contains easy to follow examples for how the different methods
+can be invoked.  
+
+Note that if the program is run more than once, the HtmlScores table will continue to grow.  If needed to re-run the program, the following 
+sql query should be executed to clear out the table.  
+mysql> DELETE FROM HtmlScores;
